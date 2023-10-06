@@ -1,4 +1,10 @@
 trigger:
+- task: NuGetCommand@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/**/*.nupkg;!$(Build.ArtifactStagingDirectory)/**/*.symbols.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: '024e91af-3b1f-436d-a20a-a11d7f30f1e4/af9cdb7b-a84a-48fe-abb5-d9915e9cdda7'
 - master
 
 pool:
